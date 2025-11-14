@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "268808078657",
+    "project_id": "moodsmells",
+    "storage_bucket": "moodsmells.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268808078657:android:a1937495886b6309588dc0",
+        "android_client_info": {
+          "package_name": "com.example.moodsmells"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaN6zsonOMUEun6mIPhEIm2E-0Rk99Wy8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

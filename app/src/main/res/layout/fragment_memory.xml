@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MemoryFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="حفظ" />
+
+        <EditText
+            android:id="@+id/editTextDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="التاريخ" />
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="الاسم" />
+
+        <EditText
+            android:id="@+id/editTextSmell"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="نوع الرائحة" />
+
+        <EditText
+            android:id="@+id/editTextMood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="المزاج" />
+
+    </LinearLayout>
+
+</FrameLayout>
