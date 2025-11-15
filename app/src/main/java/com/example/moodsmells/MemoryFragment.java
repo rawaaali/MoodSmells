@@ -3,6 +3,7 @@ package com.example.moodsmells;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,8 +60,10 @@ public class MemoryFragment extends Fragment {
         db.collection("memories")
                 .add(memory)
                 .addOnSuccessListener(documentReference ->
-                        Toast.makeText(getActivity(), "تم الحفظ بنجاح", Toast.LENGTH_SHORT).show())
-                .addOnFailureListener(e ->
-                        Toast.makeText(getActivity(), "خطأ: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                        Toast.makeText(getActivity(), "تم الحفظ بنجاح", Toast.LENGTH_SHORT).show());
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.frameLayoutMain, new SmellsListFragment());
+        ft.commit();
+
     }
 }

@@ -1,18 +1,13 @@
 package com.example.moodsmells;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.firebase.firestore.auth.User;
 
 import java.util.ArrayList;
 
@@ -80,10 +75,10 @@ public class SmellsListAdapter extends RecyclerView.Adapter<SmellsListAdapter.My
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            SmellsName = itemView.findViewById(R.id.tvNameMemory);
-            Mood = itemView.findViewById(R.id.tvMoodMemory);
-            Year = itemView.findViewById(R.id.tvDateMemory);
-            Type = itemView.findViewById(R.id.tvTypeMemory);
+            SmellsName = itemView.findViewById(R.id.tvName);
+            Mood = itemView.findViewById(R.id.tvMood);
+            Year = itemView.findViewById(R.id.tvDate);
+            Type = itemView.findViewById(R.id.tvType);
 
         }
     }

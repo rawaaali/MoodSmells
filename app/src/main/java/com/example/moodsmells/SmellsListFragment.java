@@ -86,7 +86,7 @@ public class SmellsListFragment extends Fragment {
         }
 
         private void loadSmellsFromFirebase() {
-            fbs.getFirestore().collection("smells")
+            fbs.getFirestore().collection("memories" )
 
                     .get()
                     .addOnCompleteListener(task -> {

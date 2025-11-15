@@ -20,7 +20,7 @@
             android:padding="12dp">
 
             <TextView
-                android:id="@+id/tvNameMemory"
+                android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name"
@@ -30,7 +30,7 @@
                 android:paddingBottom="4dp"/>
 
             <TextView
-                android:id="@+id/tvMoodMemory"
+                android:id="@+id/tvMood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mood"
@@ -38,7 +38,7 @@
                 android:paddingBottom="4dp"/>
 
             <TextView
-                android:id="@+id/tvDateMemory"
+                android:id="@+id/tvDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Date"
@@ -46,7 +46,7 @@
                 android:paddingBottom="4dp"/>
 
             <TextView
-                android:id="@+id/tvTypeMemory"
+                android:id="@+id/tvType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Type of Smell"
