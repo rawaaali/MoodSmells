@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SmellsDetailsFragment">
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".pagess.AddCarFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- ImageView for Car Image -->
+
+            <ImageView
+                android:id="@+id/ivCarDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:clickable="true"
+                android:scaleType="fitCenter"
+                android:contentDescription="Car Image"
+                android:onClick="toBigImg"/>
+
+            <!-- Buttons for SMS, WhatsApp, and Call -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btnSMS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SMS"
+                    android:layout_marginEnd="16dp"
+                    android:backgroundTint="#6F7F8F"/>
+
+                <Button
+                    android:id="@+id/btnWhatsApp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WhatsApp"
+                    android:layout_marginEnd="16dp"
+                    android:backgroundTint="#00E40E"/>
+
+                <Button
+                    android:id="@+id/btnCall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Call"
+                    android:backgroundTint="#6F7F8F"/>
+
+            </LinearLayout>
+
+            <!-- Car Name -->
+            <TextView
+                android:id="@+id/textView111"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="name of Memory:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvnameSmellsDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="-20dp"
+                android:hint="nameMemory" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:text="the date:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDateDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="-20dp"
+                android:hint="Date" />
+
+            <!-- Car Model -->
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="the Place :"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPlaceDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="-20dp"
+                android:hint="Place" />
+
+            <!-- Year of Car -->
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Phone:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPhoneDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="-20dp"
+                android:hint="Phone" />
+
+            <!-- Manufacturer -->
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="the Mood:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMoodDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="-20dp"
+                android:hint="Mood" />
+
+            <!-- Car Type -->
+
+            <!-- Year of Test -->
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="name of person:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPersonDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="-20dp"
+                android:hint="Person" />
+
+            <!-- Kilometres -->
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Location:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvLocationDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="-20dp"
+                android:hint="Location" />
+
+            <!-- Engine Capacity -->
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Color:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvColorDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200dp"
+                android:layout_marginTop="-20dp"
+                android:hint="Color" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Type:" />
+
+            <TextView
+                android:id="@+id/tvTypeDetailsFragment"
+                android:layout_width="105dp"
+                android:layout_height="36dp"
+                android:hint="Type" />
+
+            <!-- ... other views ... -->
+
+            <!-- Owners -->
+
+            <!-- Phone -->
+
+            <!-- Horse Power -->
+
+            <!-- Gear Shifting Model -->
+
+            <!-- Color -->
+
+            <!-- Price -->
+
+            <!-- Buttons for actions -->
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

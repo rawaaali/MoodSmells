@@ -18,19 +18,28 @@ import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 
-public class FirebaseServices
-{
+public class FirebaseServices {
 
-    private static FirebaseServices instance;
+    private static FirebaseServices Instance;
     private FirebaseAuth auth;
     private FirebaseFirestore firestore;
     private FirebaseStorage storage;
+    private Uri selectedImageURL;
 
-    public FirebaseServices(){
+    public Uri getSelectedImageURL() {
+        return selectedImageURL;
+    }
+
+    public void setSelectedImageURL(Uri selectedImageURL) {
+        this.selectedImageURL = selectedImageURL;
+    }
+
+
+    private FirebaseServices() {
         auth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
         storage = FirebaseStorage.getInstance();
-
+        selectedImageURL = null;
     }
 
     public FirebaseAuth getAuth() {
@@ -41,17 +50,14 @@ public class FirebaseServices
         return storage;
     }
 
-
     public FirebaseFirestore getFirestore() {
         return firestore;
     }
 
-
-    public static FirebaseServices getInstance(){
-        if (instance == null){
-            instance = new FirebaseServices();
+    public static FirebaseServices getInstance() {
+        if (Instance == null) {
+            Instance = new FirebaseServices();
         }
-        return instance;
+        return Instance;
     }
-
 }

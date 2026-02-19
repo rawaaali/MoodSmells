@@ -33,6 +33,7 @@ public class SmellsListFragment extends Fragment {
         private SearchView searchView;
         private SmellsListAdapter adapter;
         private FirebaseServices fbs;
+    private ImageView ivProfile;
 
         private ArrayList<SmellsItem> smellsList = new ArrayList<>();
         private ArrayList<SmellsItem> filteredList = new ArrayList<>();
@@ -83,10 +84,16 @@ public class SmellsListFragment extends Fragment {
                     return true;
                 }
             });
+            ivProfile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
         }
 
         private void loadSmellsFromFirebase() {
-            fbs.getFirestore().collection("memories" )
+            fbs.getFirestore().collection("memory" )
 
                     .get()
                     .addOnCompleteListener(task -> {

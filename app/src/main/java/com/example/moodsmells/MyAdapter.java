@@ -34,7 +34,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         SmellsItem item = list.get(position);
 
-        holder.name.setText(item.getName());
+        holder.name.setText(item.getNameMemory());
         holder.mood.setText(item.getMood());
         holder.year.setText(item.getYear());
         holder.type.setText(item.getType());

@@ -40,6 +40,15 @@
             android:layout_height="wrap_content"
             android:hint="المزاج" />
 
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_launcher_background"
+            android:contentDescription="Image"
+            android:layout_marginTop="16dp" />
+
+
     </LinearLayout>
 
 </FrameLayout>

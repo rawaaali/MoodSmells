@@ -6,6 +6,8 @@ public class Memory {
     private String typeOfSmell;
     private String mood;
 
+    private String photo;
+
     public Memory() {
         // مطلوب من Firebase
     }
@@ -15,6 +17,7 @@ public class Memory {
         this.name = name;
         this.typeOfSmell = typeOfSmell;
         this.mood = mood;
+        this.photo = photo;
     }
 
     // Getters and Setters
@@ -29,4 +32,11 @@ public class Memory {
 
     public String getMood() { return mood; }
     public void setMood(String mood) { this.mood = mood; }
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
 }
