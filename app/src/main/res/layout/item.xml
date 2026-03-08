@@ -1,60 +1,141 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
+    <?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F3F3"
+    android:padding="16dp">
 
     <androidx.cardview.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        card_view:cardCornerRadius="12dp"
-        card_view:cardElevation="6dp">
+        card_view:cardCornerRadius="14dp"
+        card_view:cardElevation="6dp"
+        android:padding="12dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="12dp">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Name"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:paddingBottom="4dp"/>
+            <!-- Photo -->
+            <ImageView
+                android:id="@+id/imgPhoto"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_launcher"
+                android:layout_marginBottom="10dp"/>
 
-            <TextView
-                android:id="@+id/tvMood"
-                android:layout_width="wrap_content"
+            <GridLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Mood"
-                android:textSize="16sp"
-                android:paddingBottom="4dp"/>
+                android:columnCount="2">
 
-            <TextView
-                android:id="@+id/tvDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Date"
-                android:textSize="16sp"
-                android:paddingBottom="4dp"/>
+                <EditText
+                    android:id="@+id/etSmellName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:hint="Smell Name"/>
 
-            <TextView
-                android:id="@+id/tvType"
-                android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/etSmellType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:hint="Type"/>
+
+                <EditText
+                    android:id="@+id/etSmellIntensity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:hint="Intensity"/>
+
+                <EditText
+                    android:id="@+id/etSmellStrength"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:hint="Strength"/>
+
+                <EditText
+                    android:id="@+id/etSmellColor"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:hint="Color"/>
+
+                <EditText
+                    android:id="@+id/etSmellStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:hint="Style"/>
+
+                <EditText
+                    android:id="@+id/etSmellSource"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:hint="Source"/>
+
+                <EditText
+                    android:id="@+id/etMemoryType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:hint="Memory Type"/>
+
+                <EditText
+                    android:id="@+id/etMemoryDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:hint="Date"/>
+
+                <EditText
+                    android:id="@+id/etMemoryPlace"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:hint="Place"/>
+
+                <EditText
+                    android:id="@+id/etFeeling"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:hint="Feeling"/>
+
+                <EditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:hint="Phone"/>
+
+            </GridLayout>
+
+            <EditText
+                android:id="@+id/etMemoryDescription"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Type of Smell"
-                android:textSize="16sp"/>
+                android:hint="Memory Description"
+                android:layout_marginTop="8dp"/>
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:layout_marginTop="10dp"/>
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
+</FrameLayout>
 
-</LinearLayout>

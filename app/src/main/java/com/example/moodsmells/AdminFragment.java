@@ -32,7 +32,7 @@ public class AdminFragment extends Fragment {
         // زر الصفحة الأولى
         btnPage1.setOnClickListener(v -> {
             FragmentTransaction ft = getParentFragmentManager().beginTransaction();
-            ft.replace(R.id.framelayout, new MemoryFragment());
+            ft.replace(R.id.framelayout, new AddSmellsFragment());
             ft.addToBackStack(null); // يتيح الرجوع
             ft.commit();
         });

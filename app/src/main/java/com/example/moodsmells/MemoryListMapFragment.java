@@ -1,14 +1,14 @@
 package com.example.moodsmells;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,25 +19,24 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.auth.User;
 
 import java.util.ArrayList;
 
-
-public class SmellsListFragment extends Fragment {
-
-
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link MemoryListMapFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class MemoryListMapFragment extends Fragment {
 
         private RecyclerView recyclerView;
+        private ImageView ivProfile;
         private FirebaseServices fbs;
-        private MyAdapter myAdapter;
-        private ArrayList<Memory> list, filteredList;
-        private FloatingActionButton btnAdd;
+        private SmellsListAdapter myAdapter;
         private SearchView srchView;
+        private ArrayList<Memory> memories, filteredList;
 
         private static final String ARG_PARAM1 = "param1";
         private static final String ARG_PARAM2 = "param2";
@@ -45,12 +44,12 @@ public class SmellsListFragment extends Fragment {
         private String mParam1;
         private String mParam2;
 
-        public SmellsListFragment() {
+        public MemoryListMapFragment() {
             // Required empty public constructor
         }
 
-        public static SmellsListFragment newInstance(String param1, String param2) {
-            SmellsListFragment fragment = new SmellsListFragment();
+        public static MemoryListMapFragment newInstance(String param1, String param2) {
+            MemoryListMapFragment fragment = new MemoryListMapFragment();
             Bundle args = new Bundle();
             args.putString(ARG_PARAM1, param1);
             args.putString(ARG_PARAM2, param2);
@@ -74,42 +73,36 @@ public class SmellsListFragment extends Fragment {
         }
 
         private void init() {
-            recyclerView = getView().findViewById(R.id.rvSmellslist);
-            btnAdd = getView().findViewById(R.id.btnAddMemory);
+            recyclerView = getView().findViewById(R.id.rvMemoryListMap);
+            ivProfile = getView().findViewById(R.id.ivProfileMemoryListMapFragment);
             fbs = FirebaseServices.getInstance();
+            fbs.setUserChangeFlag(false);
 
+            memories = new ArrayList<>();
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-            list = new ArrayList<>();
+            memories = getMemories();
+            myAdapter = new SmellsListAdapter(getActivity(), memories);
+
             filteredList = new ArrayList<>();
 
-            myAdapter = new MyAdapter(getActivity(), list);
-            recyclerView.setAdapter(myAdapter);
-
-            myAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
+            myAdapter.setOnItemClickListener(new SmellsListAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(int position) {
-                    Memory selectedMemory = list.get(position);
+                    Memory selectedMemory = memories.get(position);
                     Toast.makeText(getActivity(), "Clicked: " + selectedMemory.getSmellName(), Toast.LENGTH_SHORT).show();
+
                     Bundle args = new Bundle();
                     args.putParcelable("memory", selectedMemory);
+
                     SmellsDetailsFragment md = new SmellsDetailsFragment();
                     md.setArguments(args);
+
                     FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
                     ft.replace(R.id.framelayout, md);
                     ft.commit();
                 }
-            });
-
-            fbs.getFire().collection("memories").get().addOnSuccessListener(queryDocumentSnapshots -> {
-                for (DocumentSnapshot snapshot : queryDocumentSnapshots.getDocuments()) {
-                    Memory memory = snapshot.toObject(Memory.class);
-                    list.add(memory);
-                }
-                myAdapter.notifyDataSetChanged();
-            }).addOnFailureListener(e -> {
-                // يمكن إضافة معالجة الخطأ هنا
             });
 
             srchView = getView().findViewById(R.id.srchViewMemoryListMapFragment);
@@ -122,39 +115,36 @@ public class SmellsListFragment extends Fragment {
 
                 @Override
                 public boolean onQueryTextChange(String newText) {
-                    // يمكن تطبيق البحث أثناء الكتابة إن أردت
+                    // يمكن تفعيل البحث أثناء الكتابة هنا
                     return false;
                 }
             });
 
-            btnAdd.setOnClickListener(v -> gotoAddSmellsFragment());
-            btnAdd.setVisibility(View.INVISIBLE); // حاليا مخفي
-
-            ((MainActivity)getActivity()).pushFragment(new SmellsListFragment());
+            ivProfile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    gotoFragmentEdit();
+                }
+            });
         }
 
         private void applyFilter(String query) {
             if (query.trim().isEmpty()) {
-                myAdapter = new MyAdapter(getContext(), list);
+                myAdapter = new SmellsListAdapter(getContext(), memories);
                 recyclerView.setAdapter(myAdapter);
                 return;
             }
 
             filteredList.clear();
-            for (Memory memory : list) {
+            for (Memory memory : memories) {
                 if (memory.getSmellName().toLowerCase().contains(query.toLowerCase()) ||
-                        memory.getSmellIntensity().toLowerCase().contains(query.toLowerCase()) ||
                         memory.getMemoryType().toLowerCase().contains(query.toLowerCase()) ||
+                        memory.getFeeling().toLowerCase().contains(query.toLowerCase()) ||
                         memory.getMemoryDate().toLowerCase().contains(query.toLowerCase()) ||
-                        memory.getMemoryDescription().toLowerCase().contains(query.toLowerCase()) ||
                         memory.getMemoryLocation().toLowerCase().contains(query.toLowerCase()) ||
-                        memory.getSmellColor().toLowerCase().contains(query.toLowerCase()) ||
-                        memory.getSmellSource().toLowerCase().contains(query.toLowerCase()) ||
                         memory.getSmellCategory().toLowerCase().contains(query.toLowerCase()) ||
-                        memory.getSmellStrength().toLowerCase().contains(query.toLowerCase()) ||
-                        memory.getSmellStyle().toLowerCase().contains(query.toLowerCase()) ||
-                        memory.getFeeling().toLowerCase().contains(query.toLowerCase())
-                ) {
+                        memory.getSmellStyle().toLowerCase().contains(query.toLowerCase())) {
+
                     filteredList.add(memory);
                 }
             }
@@ -164,19 +154,21 @@ public class SmellsListFragment extends Fragment {
                 return;
             }
 
-            myAdapter = new MyAdapter(getContext(), filteredList);
+            myAdapter = new SmellsListAdapter(getContext(), filteredList);
             recyclerView.setAdapter(myAdapter);
 
-            myAdapter.setOnItemClickListener(position -> {
-                Memory selectedMemory = filteredList.get(position);
-                Toast.makeText(getActivity(), "Clicked: " + selectedMemory.getSmellName(), Toast.LENGTH_SHORT).show();
-                Bundle args = new Bundle();
-                args.putParcelable("memory", selectedMemory);
-                SmellsDetailsFragment md = new SmellsDetailsFragment();
-                md.setArguments(args);
-                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.framelayout, md);
-                ft.commit();
+            myAdapter.setOnItemClickListener(new SmellsListAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(int position) {
+                    Memory selectedMemory = filteredList.get(position);
+                    Bundle args = new Bundle();
+                    args.putParcelable("memory", selectedMemory);
+                    SmellsDetailsFragment md = new SmellsDetailsFragment();
+                    md.setArguments(args);
+                    FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                    ft.replace(R.id.framelayout, md);
+                    ft.commit();
+                }
             });
         }
 
@@ -188,13 +180,49 @@ public class SmellsListFragment extends Fragment {
         }
 
         @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.fragment_smells_list, container, false);
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            return inflater.inflate(R.layout.fragment_memory_list_map, container, false);
         }
 
-        public void gotoAddSmellsFragment() {
+        public void gotoFragmentEdit() {
             FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.framelayout, new AddSmellsFragment());
+            ft.replace(R.id.framelayout, new FragmentEdit());
             ft.commit();
+        }
+
+        public ArrayList<Memory> getMemories() {
+            ArrayList<Memory> memories = new ArrayList<>();
+
+            try {
+                fbs.getFire().collection("memories")
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    memories.clear();
+                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                        memories.add(document.toObject(Memory.class));
+                                    }
+
+                                    SmellsListAdapter adapter = new SmellsListAdapter(getActivity(), memories);
+                                    recyclerView.setAdapter(adapter);
+                                }
+                            }
+                        });
+            } catch (Exception e) {
+                Log.e("getMemories(): ", e.getMessage());
+            }
+
+            return memories;
+        }
+
+        @Override
+        public void onPause() {
+            super.onPause();
+            User u = fbs.getCurrentUser();
+            if (u != null && fbs.isUserChangeFlag())
+                fbs.updateUser(u);
         }
     }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentMemoryListMap"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    tools:context=".MemoryListMapFragment">
+
+    <!-- Header / Profile Image -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="end">
+
+        <ImageView
+            android:id="@+id/ivProfileMemoryListMapFragment"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_profile_placeholder"
+            android:contentDescription="Profile Image"
+            android:scaleType="centerCrop"
+            android:background="@drawable/circle_background"
+            android:padding="2dp" />
+    </LinearLayout>
+
+    <!-- Search View -->
+    <SearchView
+        android:id="@+id/srchViewMemoryListMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Search memories..."
+        android:iconifiedByDefault="false"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp" />
+
+    <!-- RecyclerView for Memories -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMemoryListMap"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical" />
+
+</LinearLayout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <ImageView
+            android:id="@+id/ivMemoryImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/etSmellName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Smell Name"/>
+
+        <EditText
+            android:id="@+id/etSmellIntensity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Smell Intensity"/>
+
+        <EditText
+            android:id="@+id/etMemoryType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Memory Type"/>
+
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone"/>
+
+        <Spinner
+            android:id="@+id/smellColorSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etMemoryId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Memory ID"/>
+
+        <EditText
+            android:id="@+id/etSmellSource"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Smell Source"/>
+
+        <Spinner
+            android:id="@+id/memoryDateSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etSmellCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Smell Category"/>
+
+        <EditText
+            android:id="@+id/etMemoryDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Memory Description"/>
+
+        <EditText
+            android:id="@+id/etMemoryLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Memory Location"/>
+
+        <EditText
+            android:id="@+id/etSmellStrength"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Smell Strength"/>
+
+        <EditText
+            android:id="@+id/etSmellStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Smell Style"/>
+
+        <EditText
+            android:id="@+id/etFeeling"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Feeling"/>
+
+        <Button
+            android:id="@+id/btnAddMemory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Memory"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

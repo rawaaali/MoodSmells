@@ -6,25 +6,46 @@
     tools:context=".SmellsListFragment">
 
 
-    <LinearLayout
+    <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="12dp">
+        android:padding="8dp"
+        android:background="@android:color/white">
 
-        <SearchView
-            android:id="@+id/srchViewSmells"
+        <!-- SearchView أعلى الصفحة -->
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/srchViewMemoryListMapFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:queryHint="Search smells..." />
+            android:queryHint="Search Memories"
+            android:iconifiedByDefault="false"
+            android:background="@drawable/searchview_background"
+            android:padding="4dp"/>
 
+        <!-- RecyclerView أسفل SearchView -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvSmellslist"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@id/srchViewMemoryListMapFragment"
+            android:clipToPadding="false"
+            android:scrollbars="vertical"
             android:paddingTop="8dp"/>
 
-    </LinearLayout>
+        <!-- FloatingActionButton لإضافة Memory -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnAddMemory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_add"
+            android:contentDescription="Add Memory"
+            app:backgroundTint="@color/purple_500"
+            android:visibility="visible"/>
 
+    </RelativeLayout>
 </FrameLayout>
