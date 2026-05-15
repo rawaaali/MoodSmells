@@ -1,173 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/scrollMemoryDetails"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:padding="16dp">
+    android:background="#F5F7FB"
+    android:fillViewport="true">
 
     <LinearLayout
-        android:id="@+id/linearMemoryDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <!-- Memory Image -->
+        <!-- Image -->
         <ImageView
             android:id="@+id/ivMemoryDetailsFragment"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="220dp"
             android:scaleType="centerCrop"
-            android:contentDescription="Memory Photo"
             android:src="@drawable/ic_fav"
             android:layout_marginBottom="16dp" />
 
-        <!-- Smell Name -->
-        <TextView
-            android:id="@+id/tvSmellNameDetailsFragment"
+        <!-- Info Block -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Smell Name"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_marginBottom="8dp" />
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:elevation="4dp">
 
-        <!-- Smell Intensity -->
-        <TextView
-            android:id="@+id/tvSmellIntensityDetailsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Smell Intensity"
-            android:layout_marginBottom="8dp" />
+            <TextView
+                android:id="@+id/tvSmellNameDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Smell Name"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#111111"
+                android:layout_marginBottom="10dp" />
 
-        <!-- Memory Type -->
-        <TextView
-            android:id="@+id/tvMemoryTypeDetailsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Memory Type"
-            android:layout_marginBottom="8dp" />
+            <TextView
+                android:id="@+id/tvSmellIntensityDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Smell Intensity"
+                android:layout_marginBottom="6dp" />
 
-        <!-- Phone -->
-        <TextView
-            android:id="@+id/tvPhoneDetailsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Phone"
-            android:layout_marginBottom="8dp" />
+            <TextView
+                android:id="@+id/tvMemoryTypeDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Memory Type"
+                android:layout_marginBottom="6dp" />
 
-        <!-- Memory ID -->
-        <TextView
-            android:id="@+id/tvMemoryIdDetailsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Memory ID"
-            android:layout_marginBottom="8dp" />
+            <TextView
+                android:id="@+id/tvPhoneDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phone"
+                android:layout_marginBottom="6dp" />
 
-        <!-- Smell Source -->
-        <TextView
-            android:id="@+id/tvSmellSourceDetailsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Smell Source"
-            android:layout_marginBottom="8dp" />
+            <TextView
+                android:id="@+id/tvMemoryIdDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Memory ID"
+                android:layout_marginBottom="6dp" />
 
-        <!-- Memory Date -->
-        <TextView
-            android:id="@+id/tvMemoryDateDetailsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Memory Date"
-            android:layout_marginBottom="8dp" />
+            <TextView
+                android:id="@+id/tvSmellSourceDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Smell Source"
+                android:layout_marginBottom="6dp" />
 
-        <!-- Smell Color -->
-        <TextView
-            android:id="@+id/tvSmellColorDetailsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Smell Color"
-            android:layout_marginBottom="8dp" />
+            <TextView
+                android:id="@+id/tvMemoryDateDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Memory Date"
+                android:layout_marginBottom="6dp" />
 
-        <!-- Smell Category -->
-        <TextView
-            android:id="@+id/tvSmellCategoryDetailsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Smell Category"
-            android:layout_marginBottom="8dp" />
+            <TextView
+                android:id="@+id/tvSmellColorDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Smell Color"
+                android:layout_marginBottom="6dp" />
 
-        <!-- Memory Description -->
-        <TextView
-            android:id="@+id/tvMemoryDescriptionDetailsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Memory Description"
-            android:layout_marginBottom="8dp" />
+            <TextView
+                android:id="@+id/tvSmellCategoryDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Smell Category"
+                android:layout_marginBottom="6dp" />
 
-        <!-- Memory Location -->
-        <TextView
-            android:id="@+id/tvMemoryLocationDetailsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Memory Location"
-            android:layout_marginBottom="8dp" />
+            <TextView
+                android:id="@+id/tvMemoryDescriptionDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Memory Description"
+                android:layout_marginBottom="6dp" />
 
-        <!-- Smell Strength -->
-        <TextView
-            android:id="@+id/tvSmellStrengthDetailsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Smell Strength"
-            android:layout_marginBottom="8dp" />
+            <TextView
+                android:id="@+id/tvMemoryLocationDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Memory Location"
+                android:layout_marginBottom="6dp" />
 
-        <!-- Smell Style -->
-        <TextView
-            android:id="@+id/tvSmellStyleDetailsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Smell Style"
-            android:layout_marginBottom="8dp" />
+            <TextView
+                android:id="@+id/tvSmellStrengthDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Smell Strength"
+                android:layout_marginBottom="6dp" />
 
-        <!-- Feeling -->
-        <TextView
-            android:id="@+id/tvFeelingDetailsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Feeling"
-            android:layout_marginBottom="16dp" />
+            <TextView
+                android:id="@+id/tvSmellStyleDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Smell Style"
+                android:layout_marginBottom="6dp" />
 
-        <!-- Buttons: SMS, WhatsApp, Call -->
+            <TextView
+                android:id="@+id/tvFeelingDetailsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Feeling"
+                android:layout_marginBottom="10dp" />
+
+        </LinearLayout>
+
+        <!-- Buttons -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center"
             android:weightSum="3"
-            android:layout_marginBottom="16dp">
+            android:layout_marginTop="16dp">
 
             <Button
                 android:id="@+id/btnSMS"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:layout_weight="1"
-                android:text="Send SMS" />
+                android:text="SMS"
+                android:backgroundTint="#5B6CFF"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/btnWhatsApp"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:layout_weight="1"
-                android:text="WhatsApp"
                 android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp" />
+                android:layout_marginEnd="8dp"
+                android:text="WhatsApp"
+                android:backgroundTint="#25D366"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/btnCall"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:layout_weight="1"
-                android:text="Call" />
+                android:text="Call"
+                android:backgroundTint="#FF5252"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false" />
+
         </LinearLayout>
 
     </LinearLayout>
+
 </ScrollView>

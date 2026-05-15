@@ -1,129 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignupFragment">
+    android:background="#F5F7FB"
+    android:fillViewport="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp">
 
-
-        <EditText
-            android:id="@+id/etUsernameSignup"
+        <!-- Title -->
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="76dp"
-            android:layout_marginEnd="125dp"
-            android:layout_marginBottom="12dp"
-            android:ems="10"
-            android:hint="username...."
-            android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toTopOf="@+id/etFirstnameSignupFragment"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivPhotoSignupFragment" />
+            android:text="Create Account"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#111111"
+            android:layout_marginBottom="20dp" />
 
-        <EditText
-            android:id="@+id/etPasswordSignup"
-            android:layout_width="wrap_content"
+        <!-- Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="19dp"
-            android:ems="10"
-            android:hint="password...."
-            android:inputType="textPassword"
-            app:layout_constraintBottom_toTopOf="@+id/etConfirmPasswordSignupFragment"
-            app:layout_constraintStart_toStartOf="@+id/etAddressSignupFragment"
-            app:layout_constraintTop_toBottomOf="@+id/etAddressSignupFragment" />
+            app:cardCornerRadius="24dp"
+            app:cardElevation="10dp">
 
-        <Button
-            android:id="@+id/btnSignupSignup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="176dp"
-            android:layout_marginBottom="41dp"
-            android:backgroundTint="#6F7F8F"
-            android:text="SIGNUP"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etConfirmPasswordSignupFragment" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-        <ImageView
-            android:id="@+id/ivPhotoSignupFragment"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="27dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="9dp"
-            android:background="@drawable/ic_add"
-            android:src="@drawable/top_backgroun_profile"
-            app:layout_constraintBottom_toTopOf="@+id/etUsernameSignup"
-            app:layout_constraintEnd_toEndOf="@+id/etUsernameSignup"
-            app:layout_constraintStart_toStartOf="@+id/etUsernameSignup"
-            app:layout_constraintTop_toTopOf="parent" />
+                <!-- Profile Image -->
+                <ImageView
+                    android:id="@+id/ivPhotoSignupFragment"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="18dp"
+                    android:src="@mipmap/ic_profile"
+                    android:background="#DDDDDD"
+                    android:scaleType="centerCrop" />
 
-        <EditText
-            android:id="@+id/etFirstnameSignupFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:ems="10"
-            android:hint="firstname..."
-            android:inputType="text"
-            app:layout_constraintBottom_toTopOf="@+id/etLastnameSignupFragment"
-            app:layout_constraintStart_toStartOf="@+id/etUsernameSignup"
-            app:layout_constraintTop_toBottomOf="@+id/etUsernameSignup" />
+                <!-- Username -->
+                <EditText
+                    android:id="@+id/etUsernameSignup"
+                    style="@style/ModernEditText"
+                    android:hint="Email / Username"
+                    android:inputType="textEmailAddress" />
 
-        <EditText
-            android:id="@+id/etLastnameSignupFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="7dp"
-            android:ems="10"
-            android:hint="lastname..."
-            android:inputType="text"
-            app:layout_constraintBottom_toTopOf="@+id/etPhoneSignupFragment"
-            app:layout_constraintStart_toStartOf="@+id/etFirstnameSignupFragment"
-            app:layout_constraintTop_toBottomOf="@+id/etFirstnameSignupFragment" />
+                <!-- First Name -->
+                <EditText
+                    android:id="@+id/etFirstnameSignupFragment"
+                    style="@style/ModernEditText"
+                    android:hint="First Name" />
 
-        <EditText
-            android:id="@+id/etConfirmPasswordSignupFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="60dp"
-            android:ems="10"
-            android:hint="confirm password..."
-            android:inputType="textPassword"
-            app:layout_constraintBottom_toTopOf="@+id/btnSignupSignup"
-            app:layout_constraintStart_toStartOf="@+id/etPasswordSignup"
-            app:layout_constraintTop_toBottomOf="@+id/etPasswordSignup" />
+                <!-- Last Name -->
+                <EditText
+                    android:id="@+id/etLastnameSignupFragment"
+                    style="@style/ModernEditText"
+                    android:hint="Last Name" />
 
-        <EditText
-            android:id="@+id/etPhoneSignupFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="31dp"
-            android:ems="10"
-            android:hint="phone..."
-            android:inputType="number|numberDecimal|numberSigned"
-            app:layout_constraintBottom_toTopOf="@+id/etAddressSignupFragment"
-            app:layout_constraintStart_toStartOf="@+id/etLastnameSignupFragment"
-            app:layout_constraintTop_toBottomOf="@+id/etLastnameSignupFragment" />
+                <!-- Phone -->
+                <EditText
+                    android:id="@+id/etPhoneSignupFragment"
+                    style="@style/ModernEditText"
+                    android:hint="Phone"
+                    android:inputType="phone" />
 
-        <EditText
-            android:id="@+id/etAddressSignupFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="22dp"
-            android:ems="10"
-            android:hint="address..."
-            android:inputType="text"
-            app:layout_constraintBottom_toTopOf="@+id/etPasswordSignup"
-            app:layout_constraintStart_toStartOf="@+id/etPhoneSignupFragment"
-            app:layout_constraintTop_toBottomOf="@+id/etPhoneSignupFragment" />
+                <!-- Address -->
+                <EditText
+                    android:id="@+id/etAddressSignupFragment"
+                    style="@style/ModernEditText"
+                    android:hint="Address" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>
+                <!-- Password -->
+                <EditText
+                    android:id="@+id/etPasswordSignup"
+                    style="@style/ModernEditText"
+                    android:hint="Password"
+                    android:inputType="textPassword" />
+
+                <!-- Confirm Password -->
+                <EditText
+                    android:id="@+id/etConfirmPasswordSignupFragment"
+                    style="@style/ModernEditText"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword" />
+
+                <!-- Signup Button -->
+                <Button
+                    android:id="@+id/btnSignupSignup"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="18dp"
+                    android:backgroundTint="#5B6CFF"
+                    android:text="Sign Up"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>

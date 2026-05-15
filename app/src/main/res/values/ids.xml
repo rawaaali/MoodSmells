@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="action_home" type="id"/>
+    <item name="action_add" type="id"/>
+    <item name="action_signout" type="id"/>
+</resources>

@@ -64,15 +64,15 @@ public class SmellsItem implements Parcelable {
         this.photo = in.readString();
     }
 
-    public static final Parcelable.Creator<User> CREATOR = new Creator<User>() {
+    public static final Parcelable.Creator<SmellsItem> CREATOR = new Creator<SmellsItem>() {
         @Override
-        public User createFromParcel(Parcel in) {
-            return new User(in);
+        public SmellsItem createFromParcel(Parcel in) {
+            return new SmellsItem(in);
         }
 
         @Override
-        public User[] newArray(int size) {
-            return new User[size];
+        public SmellsItem[] newArray(int size) {
+            return new SmellsItem[size];
         }
     };
 

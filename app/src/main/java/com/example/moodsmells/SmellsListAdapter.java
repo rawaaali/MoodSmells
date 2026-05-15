@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class SmellsListAdapter extends RecyclerView.Adapter<SmellsListAdapter.MemoryViewHolder> {
 
     private Context context;
-    private ArrayList<SmellsItem> List;
+    private ArrayList<Memory> list;
     private OnItemClickListener listener;
 
     public interface OnItemClickListener {
@@ -28,9 +28,9 @@ public class SmellsListAdapter extends RecyclerView.Adapter<SmellsListAdapter.Me
         this.listener = listener;
     }
 
-    public SmellsListAdapter(Context context, ArrayList<SmellsItem> List) {
+    public SmellsListAdapter(Context context, ArrayList<Memory> list) {
         this.context = context;
-        this.List = List;
+        this.list = list;
     }
 
     @NonNull
@@ -42,26 +42,24 @@ public class SmellsListAdapter extends RecyclerView.Adapter<SmellsListAdapter.Me
 
     @Override
     public void onBindViewHolder(@NonNull MemoryViewHolder holder, int position) {
-        Memory memory = List.get(position);
+        Memory memory = list.get(position);
 
-        // مثال لعرض بعض الخصائص في الـ RecyclerView
         holder.tvSmellName.setText(memory.getSmellName());
         holder.tvMemoryDate.setText(memory.getMemoryDate());
         holder.tvMemoryDescription.setText(memory.getMemoryDescription());
 
-        // إذا عندك صورة
         if (memory.getPhoto() != null && !memory.getPhoto().isEmpty()) {
             Glide.with(context)
                     .load(memory.getPhoto())
                     .into(holder.ivPhoto);
         } else {
-            holder.ivPhoto.setImageResource(R.drawable.ic_launcher_background);
+            holder.ivPhoto.setImageResource(R.mipmap.ic_launcher);
         }
     }
 
     @Override
     public int getItemCount() {
-        return List.size();
+        return list != null ? list.size() : 0;
     }
 
     public static class MemoryViewHolder extends RecyclerView.ViewHolder {
@@ -78,7 +76,7 @@ public class SmellsListAdapter extends RecyclerView.Adapter<SmellsListAdapter.Me
 
             itemView.setOnClickListener(v -> {
                 if (listener != null) {
-                    int position = getAdapterPosition();
+                    int position = getBindingAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {
                         listener.onItemClick(position);
                     }

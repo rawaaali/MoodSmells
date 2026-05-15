@@ -1,51 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SmellsListFragment">
+    android:background="#F6F7FB">
 
-
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp"
-        android:background="@android:color/white">
+        android:orientation="vertical"
+        android:padding="12dp">
 
-        <!-- SearchView أعلى الصفحة -->
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/srchViewMemoryListMapFragment"
+        <!-- Search Card -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:queryHint="Search Memories"
-            android:iconifiedByDefault="false"
-            android:background="@drawable/searchview_background"
-            android:padding="4dp"/>
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="10dp">
 
-        <!-- RecyclerView أسفل SearchView -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvSmellslist"
+            <SearchView
+                android:id="@+id/srchViewSmellsList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:iconifiedByDefault="false"
+                android:queryHint="Search smells..."
+                android:background="@android:color/white"
+                android:padding="6dp" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- List Container -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/srchViewMemoryListMapFragment"
-            android:clipToPadding="false"
-            android:scrollbars="vertical"
-            android:paddingTop="8dp"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="6dp"
+            android:padding="8dp">
 
-        <!-- FloatingActionButton لإضافة Memory -->
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnAddMemory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_margin="16dp"
-            android:src="@drawable/ic_add"
-            android:contentDescription="Add Memory"
-            app:backgroundTint="@color/purple_500"
-            android:visibility="visible"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMemoryList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:padding="6dp" />
 
-    </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <!-- Floating Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddMemory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="18dp"
+        android:contentDescription="Add Memory"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="#4A90E2"
+        app:tint="@android:color/white"
+        app:elevation="8dp" />
+
 </FrameLayout>

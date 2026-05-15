@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F5F7FB"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -9,102 +12,140 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <ImageView
-            android:id="@+id/ivMemoryImage"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher"
-            android:layout_marginBottom="16dp"/>
+        <!-- Title -->
 
+        <!-- Image Card -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Add New Memory"
+            android:textColor="#111111"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            android:layout_marginBottom="20dp">
+
+            <ImageView
+                android:id="@+id/ivMemoryImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher"
+                android:background="#DDDDDD"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Smell Name -->
         <EditText
             android:id="@+id/etSmellName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ModernEditText"
             android:hint="Smell Name"/>
 
+        <!-- Intensity -->
         <EditText
             android:id="@+id/etSmellIntensity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ModernEditText"
             android:hint="Smell Intensity"/>
 
+        <!-- Memory Type -->
         <EditText
             android:id="@+id/etMemoryType"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ModernEditText"
             android:hint="Memory Type"/>
 
+        <!-- Phone -->
         <EditText
             android:id="@+id/etPhone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Phone"/>
+            style="@style/ModernEditText"
+            android:hint="Phone"
+            android:inputType="phone"/>
 
+        <!-- Color Spinner -->
         <Spinner
             android:id="@+id/smellColorSpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="55dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/spinner_bg"
+            android:padding="12dp"/>
 
+        <!-- Memory ID -->
         <EditText
             android:id="@+id/etMemoryId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ModernEditText"
             android:hint="Memory ID"/>
 
+        <!-- Smell Source -->
         <EditText
             android:id="@+id/etSmellSource"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ModernEditText"
             android:hint="Smell Source"/>
 
+        <!-- Date Spinner -->
         <Spinner
             android:id="@+id/memoryDateSpinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="55dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/spinner_bg"
+            android:padding="12dp"/>
 
+        <!-- Category -->
         <EditText
             android:id="@+id/etSmellCategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ModernEditText"
             android:hint="Smell Category"/>
 
+        <!-- Description -->
         <EditText
             android:id="@+id/etMemoryDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Memory Description"/>
+            style="@style/ModernEditText"
+            android:hint="Memory Description"
+            android:minLines="3"
+            android:gravity="top"/>
 
+        <!-- Location -->
         <EditText
             android:id="@+id/etMemoryLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ModernEditText"
             android:hint="Memory Location"/>
 
+        <!-- Strength -->
         <EditText
             android:id="@+id/etSmellStrength"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ModernEditText"
             android:hint="Smell Strength"/>
 
+        <!-- Style -->
         <EditText
             android:id="@+id/etSmellStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ModernEditText"
             android:hint="Smell Style"/>
 
+        <!-- Feeling -->
         <EditText
             android:id="@+id/etFeeling"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/ModernEditText"
             android:hint="Feeling"/>
 
+        <!-- Add Button -->
         <Button
             android:id="@+id/btnAddMemory"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginTop="18dp"
+            android:backgroundTint="#5B6CFF"
             android:text="Add Memory"
-            android:layout_marginTop="20dp"/>
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 

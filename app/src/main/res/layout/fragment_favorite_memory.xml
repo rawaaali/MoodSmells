@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="8dp"
     android:background="@android:color/white">
 
-    <!-- SearchView أعلى الصفحة -->
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/srchViewFavoriteMemoryFragment"
+    <SearchView
+        android:id="@+id/srchViewFavoriteMemory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Search Memories"
-        android:iconifiedByDefault="false"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/searchview_background"
-        android:padding="4dp"/>
+        android:queryHint="Search favorites..."/>
 
-    <!-- RecyclerView للعرض -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMemoryList"
         android:layout_width="match_parent"

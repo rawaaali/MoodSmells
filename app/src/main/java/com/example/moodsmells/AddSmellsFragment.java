@@ -44,11 +44,15 @@ public class AddSmellsFragment extends Fragment {
             "2013","2012","2011","2010","2009","2008","2007","2006","2005","2004",
             "2003","2002","2001","2000","other..."};
 
+    private View view;
+
     public AddSmellsFragment(){}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_add_smells, container, false);
+        view = inflater.inflate(R.layout.fragment_add_smells, container, false);
+
+        return view;
     }
 
     @Override
@@ -62,28 +66,30 @@ public class AddSmellsFragment extends Fragment {
         fbs=FirebaseServices.getInstance();
         utils=Utils.getInstance();
 
-        etSmellName=getView().findViewById(R.id.etSmellName);
-        etSmellIntensity=getView().findViewById(R.id.etSmellIntensity);
-        etMemoryType=getView().findViewById(R.id.etMemoryType);
-        etPhone=getView().findViewById(R.id.etPhone);
-        etMemoryId=getView().findViewById(R.id.etMemoryId);
-        etSmellSource=getView().findViewById(R.id.etSmellSource);
-        etSmellCategory=getView().findViewById(R.id.etSmellCategory);
-        etMemoryDescription=getView().findViewById(R.id.etMemoryDescription);
-        etMemoryLocation=getView().findViewById(R.id.etMemoryLocation);
-        etSmellStrength=getView().findViewById(R.id.etSmellStrength);
-        etSmellStyle=getView().findViewById(R.id.etSmellStyle);
-        etFeeling=getView().findViewById(R.id.etFeeling);
+        etSmellName=view.findViewById(R.id.etSmellName);
+        etSmellIntensity=view.findViewById(R.id.etSmellIntensity);
+        etMemoryType=view.findViewById(R.id.etMemoryType);
+        etPhone=view.findViewById(R.id.etPhone);
+        etMemoryId=view.findViewById(R.id.etMemoryId);
+        etSmellSource=view.findViewById(R.id.etSmellSource);
+        etSmellCategory=view.findViewById(R.id.etSmellCategory);
+        etMemoryDescription=view.findViewById(R.id.etMemoryDescription);
+        etMemoryLocation=view.findViewById(R.id.etMemoryLocation);
+        etSmellStrength=view.findViewById(R.id.etSmellStrength);
+        etSmellStyle=view.findViewById(R.id.etSmellStyle);
+        etFeeling=view.findViewById(R.id.etFeeling);
 
-        btnAddMemory=getView().findViewById(R.id.btnAddMemory);
-        img=getView().findViewById(R.id.ivMemoryImage);
+        btnAddMemory=view.findViewById(R.id.btnAddMemory);
+        img=view.findViewById(R.id.ivMemoryImage);
 
-        smellColorSpinner=getView().findViewById(R.id.smellColorSpinner);
-        ArrayAdapter<String>adapter=new ArrayAdapter<>(getActivity(),R.layout.item,colors);
+        smellColorSpinner=view.findViewById(R.id.smellColorSpinner);
+        ArrayAdapter<String>adapter=new ArrayAdapter<>(getActivity(),android.R.layout.simple_spinner_item,colors);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         smellColorSpinner.setAdapter(adapter);
 
-        memoryDateSpinner=getView().findViewById(R.id.memoryDateSpinner);
-        ArrayAdapter<String>adapter2=new ArrayAdapter<>(getActivity(),R.layout.item,dates);
+        memoryDateSpinner=view.findViewById(R.id.memoryDateSpinner);
+        ArrayAdapter<String>adapter2=new ArrayAdapter<>(getActivity(),android.R.layout.simple_spinner_item,dates);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         memoryDateSpinner.setAdapter(adapter2);
 
         btnAddMemory.setOnClickListener(new View.OnClickListener() {
@@ -168,7 +174,9 @@ public class AddSmellsFragment extends Fragment {
     public void onActivityResult(int requestCode,int resultCode,Intent data){
         super.onActivityResult(requestCode,resultCode,data);
 
-        if(requestCode==GALLERY_REQUEST_CODE && resultCode==getActivity().RESULT_OK && data!=null){
+        if(requestCode==GALLERY_REQUEST_CODE &&
+                resultCode==Activity.RESULT_OK &&
+                data!=null){
             Uri selectedImageUri=data.getData();
             img.setImageURI(selectedImageUri);
             utils.uploadImage(getActivity(),selectedImageUri);

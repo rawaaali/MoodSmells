@@ -4,22 +4,31 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
-    Context context;
-    ArrayList<SmellsItem> list;
+    private final Context context;
+    private final ArrayList<Memory> filteredList;
     private OnItemClickListener listener;
 
-    public MyAdapter(Context context, ArrayList<SmellsItem> list) {
+    public MyAdapter(Context context, ArrayList<Memory> list) {
         this.context = context;
-        this.list = list;
+        this.filteredList = list;
+    }
+
+    public MyAdapter(FragmentActivity activity, ArrayList<Memory> filteredList) {
+        this.context = activity;
+        this.filteredList = filteredList;
     }
 
     @NonNull
@@ -31,14 +40,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        SmellsItem item = list.get(position);
+        Memory item = filteredList.get(position);
 
-        holder.smellName.setText(item.getSmellsName());
-        holder.smellIntensity.setText(item.getSmellsIntensity());
+        holder.smellName.setText(item.getSmellName());
+        holder.smellIntensity.setText(item.getSmellIntensity());
         holder.memoryType.setText(item.getMemoryType());
         holder.phone.setText(item.getPhone());
         holder.smellColor.setText(item.getSmellColor());
-        holder.memoryId.setText(item.getMemoryId());
         holder.smellSource.setText(item.getSmellSource());
         holder.memoryDate.setText(item.getMemoryDate());
         holder.smellCategory.setText(item.getSmellCategory());
@@ -47,18 +55,32 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         holder.smellStrength.setText(item.getSmellStrength());
         holder.smellStyle.setText(item.getSmellStyle());
         holder.feeling.setText(item.getFeeling());
-        holder.photo.setText(item.getPhoto());
 
+        if (item.getPhoto() != null && !item.getPhoto().isEmpty()) {
+            Glide.with(context).load(item.getPhoto()).into(holder.photo);
+        } else {
+            holder.photo.setImageResource(R.mipmap.ic_launcher);
+        }
+
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                int pos = holder.getBindingAdapterPosition();
+                if (pos != RecyclerView.NO_POSITION) {
+                    listener.onItemClick(pos);
+                }
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return filteredList != null ? filteredList.size() : 0;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView smellName, smellIntensity,memoryType,phone,smellColor,memoryId,smellSource,memoryDate,smellCategory,memoryDescription,memoryLocation,smellStrength,smellStyle,feeling,photo;
+        TextView smellName, smellIntensity, memoryType, phone, smellColor, smellSource, memoryDate, smellCategory, memoryDescription, memoryLocation, smellStrength, smellStyle, feeling;
+        ImageView photo;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -67,22 +89,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             smellIntensity = itemView.findViewById(R.id.etSmellIntensity);
             memoryType = itemView.findViewById(R.id.etMemoryType);
             phone = itemView.findViewById(R.id.etPhone);
-            smellColor=itemView.findViewById(R.id.etSmellColor);
-            memoryId=itemView.findViewById(R.id.etMemoryId);
-            smellSource=itemView.findViewById(R.id.etSmellSource);
-            memoryDate=itemView.findViewById(R.id.etMemoryDate);
-            smellCategory=itemView.findViewById(R.id.etSmellCategory);
-            memoryDescription=itemView.findViewById(R.id.etMemoryDescription);
-            memoryLocation=itemView.findViewById(R.id.etMemoryLocation);
-            smellStrength=itemView.findViewById(R.id.etSmellStrength);
-            smellStyle=itemView.findViewById(R.id.etSmellStyle);
-            feeling=itemView.findViewById(R.id.etFeeling);
-            photo=itemView.findViewById(R.id.imgPhoto);
-
-
-
-
-
+            smellColor = itemView.findViewById(R.id.etSmellColor);
+            smellSource = itemView.findViewById(R.id.etSmellSource);
+            memoryDate = itemView.findViewById(R.id.etMemoryDate);
+            smellCategory = itemView.findViewById(R.id.etSmellType);
+            memoryDescription = itemView.findViewById(R.id.etMemoryDescription);
+            memoryLocation = itemView.findViewById(R.id.etMemoryPlace);
+            smellStrength = itemView.findViewById(R.id.etSmellStrength);
+            smellStyle = itemView.findViewById(R.id.etSmellStyle);
+            feeling = itemView.findViewById(R.id.etFeeling);
+            photo = itemView.findViewById(R.id.imgPhoto);
         }
     }
 
@@ -94,5 +110,3 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         this.listener = listener;
     }
 }
-
-
