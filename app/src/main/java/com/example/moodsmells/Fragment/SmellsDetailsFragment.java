@@ -1,4 +1,4 @@
-package com.example.moodsmells;
+package com.example.moodsmells.Fragment;
 
 import android.Manifest;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -19,6 +18,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.moodsmells.Class.Memory;
+import com.example.moodsmells.FirebaseServices;
+import com.example.moodsmells.R;
 import com.squareup.picasso.Picasso;
 
 

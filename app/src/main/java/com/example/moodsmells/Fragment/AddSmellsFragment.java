@@ -1,4 +1,4 @@
-package com.example.moodsmells;
+package com.example.moodsmells.Fragment;
 
 
 import android.app.Activity;
@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,7 +20,10 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.example.moodsmells.Class.Memory;
+import com.example.moodsmells.FirebaseServices;
+import com.example.moodsmells.R;
+import com.example.moodsmells.Utils;
 
 public class AddSmellsFragment extends Fragment {
     private static final int GALLERY_REQUEST_CODE = 123;
@@ -160,7 +162,7 @@ public class AddSmellsFragment extends Fragment {
         fbs.getFire().collection("memories").add(memory)
                 .addOnSuccessListener(documentReference -> {
                     Toast.makeText(getActivity(),"Memory Added Successfully",Toast.LENGTH_SHORT).show();
-                    gotoSmellsList();
+                    gotoAdminFragment();
                 })
                 .addOnFailureListener(e -> Log.e("addToFirestore",e.getMessage()));
     }
@@ -183,9 +185,10 @@ public class AddSmellsFragment extends Fragment {
         }
     }
 
-    public void gotoSmellsList(){
-        FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.framelayout,new MemoryListMapFragment());
+    public void gotoAdminFragment(){
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.framelayout, new AdminFragment());
+        ft.addToBackStack(null);
         ft.commit();
     }
 }

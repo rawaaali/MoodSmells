@@ -1,4 +1,4 @@
-package com.example.moodsmells;
+package com.example.moodsmells.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +12,8 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.moodsmells.Class.Memory;
+import com.example.moodsmells.R;
 
 import java.util.ArrayList;
 

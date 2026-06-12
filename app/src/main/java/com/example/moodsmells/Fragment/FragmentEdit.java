@@ -1,11 +1,10 @@
-package com.example.moodsmells;
+package com.example.moodsmells.Fragment;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -19,16 +18,13 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 
 
+import com.example.moodsmells.FirebaseServices;
 import com.example.moodsmells.R;
-
+import com.example.moodsmells.Utils;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
-import com.example.moodsmells.User;
+import com.example.moodsmells.Class.User;
 
 
 import java.util.UUID;

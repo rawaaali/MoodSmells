@@ -1,4 +1,4 @@
-package com.example.moodsmells;
+package com.example.moodsmells.Fragment;
 
 import android.os.Bundle;
 
@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.moodsmells.FirebaseServices;
+import com.example.moodsmells.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -21,7 +23,7 @@ import com.google.firebase.auth.AuthResult;
 
 public class LoginFragment extends Fragment {
     private EditText etUsername , etPassword;
-    private TextView tvSignupLink, tvForgotpassword;
+    private TextView tvSignupLogin, tvForgotpassword;
     private Button btnLogin;
     private FirebaseServices fbs ;
 
@@ -47,15 +49,15 @@ public class LoginFragment extends Fragment {
         etUsername = getView().findViewById(R.id.etUsernameLogin);
         etPassword = getView().findViewById(R.id.etPasswordLogin);
         btnLogin = getView().findViewById(R.id.btnLoginLogin);
-        tvSignupLink = getView().findViewById(R.id.tvSignupLogin);
+        tvSignupLogin = getView().findViewById(R.id.tvSignupLogin);
         tvForgotpassword=getView().findViewById(R.id.tvForgotpassword);
         tvForgotpassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gotoForgotPasswordFragment();
+                gotoFrgotPasswordFragment();
             }
         });
-        tvSignupLink.setOnClickListener(new View.OnClickListener() {
+        tvSignupLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 gotoSignupFragment();
@@ -81,7 +83,8 @@ public class LoginFragment extends Fragment {
                             Toast.makeText(getActivity(), "you have successfully login!", Toast.LENGTH_SHORT).show();
 
                                 FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                                ft.replace(R.id.frameLayout, new AdminFragment());
+                                ft.replace(R.id.framelayout, new AdminFragment());
+                            ft.addToBackStack(null);
                                 ft.commit();
 
                         }
@@ -101,13 +104,15 @@ public class LoginFragment extends Fragment {
     }
 
     private void gotoSignupFragment() {
-        FragmentTransaction ft = getActivity(). getSupportFragmentManager().beginTransaction();
-        ft . replace(R.id.frameLayout,new SignupFragment())  ;
-        ft . commit();
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.framelayout, new SignupFragment());
+        ft.addToBackStack(null);
+        ft.commit();
     }
-    private void gotoForgotPasswordFragment(){
-        FragmentTransaction ft= getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frameLayout,new FrgotPasswordFragment());
+    private void gotoFrgotPasswordFragment(){
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.framelayout, new FrgotPasswordFragment()); // تأكد من اسم كلاس نسيت كلمة المرور لديك
+        ft.addToBackStack(null);
         ft.commit();
     }
 

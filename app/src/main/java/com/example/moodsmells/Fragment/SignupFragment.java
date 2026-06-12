@@ -1,6 +1,5 @@
-package com.example.moodsmells;
+package com.example.moodsmells.Fragment;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,6 +18,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.moodsmells.Class.MainActivity;
+import com.example.moodsmells.Class.User;
+import com.example.moodsmells.FirebaseServices;
+import com.example.moodsmells.R;
+import com.example.moodsmells.Utils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -162,7 +166,7 @@ public class SignupFragment extends Fragment {
                                     fbs.getFire().collection("users").add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                         @Override
                                         public void onSuccess(DocumentReference documentReference) {
-                                            gotoSmellsList();
+                                            gotoAdminFragment();
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
@@ -185,7 +189,7 @@ public class SignupFragment extends Fragment {
 
             }
         });
-        ((MainActivity)getActivity()).pushFragment(new SignupFragment());
+
     }
 
     private void openGallery() {
@@ -204,10 +208,10 @@ public class SignupFragment extends Fragment {
         }
     }
 
-    public void gotoSmellsList()
+    public void gotoAdminFragment()
     {
         FragmentTransaction ft=getActivity().getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.framelayout,new MemoryListMapFragment());
+        ft.replace(R.id.framelayout,new AdminFragment());
         ft.commit();
         setNavigationBarVisible();
     }

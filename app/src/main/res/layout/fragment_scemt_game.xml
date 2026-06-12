@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#FDFBF7">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal"
+        tools:context="com.example.moodsmells.Fragment.ScemtGameFragment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp">
+
+            <TextView
+                android:id="@+id/tvGameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:text="مختبر الروائح"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="#3E2723" />
+
+            <TextView
+                android:id="@+id/tvScoree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:background="#EDE7F6"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="8dp"
+                android:text="النتيجة: 0"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#5E35B1" />
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#F5EBE6">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="تخيل أنك تشم الآن..."
+                    android:textSize="14sp"
+                    android:textColor="#A1887F" />
+
+                <TextView
+                    android:id="@+id/tvScentQuestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="رائحة المطر 🌧️"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:textColor="#4E342E"
+                    android:gravity="center" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="اختر الذكرى التي تعيدها هذه الرائحة إلى مخيلتك:"
+            android:textSize="15sp"
+            android:textColor="#795548"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/btnOption1"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="12dp"
+            android:text="ذكرى أول يوم مدرسة"
+            android:textSize="16sp"
+            android:textColor="#4E342E"
+            android:textAllCaps="false"
+            app:cornerRadius="16dp"
+            android:backgroundTint="#F0E6DF"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"/>
+
+        <Button
+            android:id="@+id/btnOption2"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="12dp"
+            android:text="الجلوس في حديقة المنزل القديم"
+            android:textSize="16sp"
+            android:textColor="#4E342E"
+            android:textAllCaps="false"
+            app:cornerRadius="16dp"
+            android:backgroundTint="#F0E6DF"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"/>
+
+        <Button
+            android:id="@+id/btnOption3"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="12dp"
+            android:text="رحلة التخييم الجبلية"
+            android:textSize="16sp"
+            android:textColor="#4E342E"
+            android:textAllCaps="false"
+            app:cornerRadius="16dp"
+            android:backgroundTint="#F0E6DF"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"/>
+
+        <Button
+            android:id="@+id/btnOption4"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginBottom="16dp"
+            android:text="المطبخ يوم العيد"
+            android:textSize="16sp"
+            android:textColor="#4E342E"
+            android:textAllCaps="false"
+            app:cornerRadius="16dp"
+            android:backgroundTint="#F0E6DF"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,4 +1,4 @@
-package com.example.moodsmells;
+package com.example.moodsmells.Fragment;
 
 import android.os.Bundle;
 
@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.moodsmells.FirebaseServices;
+import com.example.moodsmells.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 

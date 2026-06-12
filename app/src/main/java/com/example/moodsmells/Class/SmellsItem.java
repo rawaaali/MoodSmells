@@ -1,4 +1,4 @@
-package com.example.moodsmells;
+package com.example.moodsmells.Class;
 
 import android.os.Parcel;
 import android.os.Parcelable;
